@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Золотое Яблоко — Коллекционные карточки</title>
+<style>
+/* ── Fonts ── */
+@font-face{font-family:'Unbounded';src:url('assets/fonts/Unbounded-Medium.ttf') format('truetype');font-weight:500;font-display:swap}
+@font-face{font-family:'Unbounded';src:url('assets/fonts/Unbounded-Bold.ttf') format('truetype');font-weight:700;font-display:swap}
+@font-face{font-family:'Unbounded';src:url('assets/fonts/Unbounded-Black.ttf') format('truetype');font-weight:900;font-display:swap}
+@font-face{font-family:'Inter';src:url('assets/fonts/Inter-Regular.ttf') format('truetype');font-weight:400;font-display:swap}
+@font-face{font-family:'Inter';src:url('assets/fonts/Inter-Medium.ttf') format('truetype');font-weight:500;font-display:swap}
+@font-face{font-family:'Inter';src:url('assets/fonts/Inter-Bold.ttf') format('truetype');font-weight:700;font-display:swap}
+
+/* ── Tokens ── */
+:root{
+  --bg:#F7F5F0;--bg-card:#FFF;--text:#0F0F0F;--muted:#8A8680;
+  --gold:#D4AF37;--gold-dk:#A8871C;--green:#9FE85A;
+  --border:#E8E4DC;--hover:#EDE9E0;
+  --r-c:#8A8680;--r-r:#4A6FA5;--r-e:#7C4A8C;--r-l:#D4AF37;
+  --hd:'Unbounded','Helvetica Neue',Arial,sans-serif;
+  --bd:'Inter','Helvetica Neue',Arial,sans-serif;
+}
+
+/* ── Reset ── */
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--bd);font-size:14px;-webkit-font-smoothing:antialiased;min-height:100vh;overflow-x:hidden}
+button{font-family:inherit;cursor:pointer;background:none;border:none;color:inherit}
+img{display:block;user-select:none;-webkit-user-drag:none}
+
+/* ── Screen toggling ── */
+.screen{display:none;min-height:100vh;padding:32px clamp(20px,6vw,80px) 40px;animation:sin .32s ease}
+.screen.active{display:block}
+#screen-menu.active{display:flex;flex-direction:column}
+@keyframes sin{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── Topbar ── */
+.topbar{display:flex;align-items:center;min-height:40px;margin-bottom:20px}
+.brand{display:flex;align-items:center;gap:10px}
+.brand-dot{width:10px;height:10px;border-radius:50%;background:var(--gold)}
+.brand-name{font-family:var(--hd);font-weight:900;font-size:14px;letter-spacing:2px}
+
+/* ── Buttons ── */
+.btn{display:inline-flex;align-items:center;justify-content:center;font-family:var(--bd);font-weight:500;font-size:13px;border-radius:26px;padding:12px 26px;border:1px solid var(--border);transition:all .18s ease;white-space:nowrap}
+.btn:hover{background:var(--hover);border-color:var(--text)}
+.btn:active{transform:translateY(1px)}
+.btn-primary{background:var(--text);color:var(--bg);border-color:var(--text);font-family:var(--hd);font-weight:700;letter-spacing:.5px;padding:14px 30px}
+.btn-primary:hover{background:var(--gold-dk);border-color:var(--gold-dk);color:#fff}
+.btn-back{height:40px;padding:8px 20px;border-radius:20px}
+
+/* ── Menu hero ── */
+.hero{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px 0 40px}
+.hero-title{font-family:var(--hd);font-weight:900;font-size:clamp(48px,8vw,88px);line-height:.92;letter-spacing:-1px;margin-bottom:18px}
+.hero-sub{color:#5a5754;font-size:15px;margin-bottom:42px;max-width:520px}
+.cta-row{display:flex;flex-wrap:wrap;justify-content:center;gap:12px}
+.cta-row .btn{min-width:170px;height:52px}
+.cta-row .btn-primary{min-width:210px}
+.menu-footer{text-align:center;color:#aaa7a3;font-size:11px;letter-spacing:2px;padding-top:20px}
+
+/* ── Page heading ── */
+.page-head{margin-bottom:28px}
+.page-title{font-family:var(--hd);font-weight:900;font-size:clamp(28px,5vw,44px);letter-spacing:2.5px;line-height:1;margin-bottom:6px}
+.page-sub{font-size:13px;color:var(--muted)}
+
+/* ── Pack selection ── */
+.pack-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;max-width:1100px;margin:0 auto}
+.pack-card{display:flex;flex-direction:column;background:var(--bg-card);border:1px solid var(--border);border-radius:20px;overflow:hidden;text-align:center;position:relative;transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease;padding:0 20px 24px}
+.pack-card:hover{transform:translateY(-4px);box-shadow:0 14px 34px -18px rgba(0,0,0,.2);border-color:var(--text)}
+.pack-accent{display:block;height:6px;margin:0 -20px 20px}
+.pack-card[data-rarity="Common"] .pack-accent{background:var(--r-c)}
+.pack-card[data-rarity="Epic"] .pack-accent{background:var(--r-e)}
+.pack-card[data-rarity="Legendary"] .pack-accent{background:var(--r-l)}
+.pack-image{width:100%;max-width:200px;margin:0 auto 18px;border-radius:12px}
+.pack-name{font-family:var(--hd);font-weight:900;font-size:22px;letter-spacing:1px;margin-bottom:4px}
+.pack-meta{font-size:12px;color:var(--muted);margin-bottom:16px}
+.pack-cta{font-family:var(--hd);font-weight:700;letter-spacing:.5px;font-size:13px;background:var(--text);color:var(--bg);border-radius:24px;padding:12px 24px;margin:0 auto;width:fit-content;min-width:150px;transition:background .18s ease}
+.pack-card:hover .pack-cta{background:var(--gold-dk);color:#fff}
+
+/* ── Opening ── */
+.opening-title{font-family:var(--hd);font-weight:900;letter-spacing:2.5px;font-size:clamp(24px,4vw,36px);text-align:center;margin:12px 0 20px}
+.pack-shake{display:flex;justify-content:center;min-height:280px;align-items:center;margin-bottom:16px}
+.pack-shake img{width:200px;border-radius:14px;transition:opacity .3s,transform .3s}
+.pack-shake.shake img{animation:psh .7s ease-in-out}
+.pack-shake.burst img{animation:pburst .45s ease-out forwards}
+@keyframes psh{0%,100%{transform:translateX(0) rotate(0)}20%{transform:translateX(-8px) rotate(-2deg)}40%{transform:translateX(8px) rotate(2deg)}60%{transform:translateX(-6px) rotate(-1.5deg)}80%{transform:translateX(6px) rotate(1.5deg)}}
+@keyframes pburst{0%{transform:scale(1);opacity:1}50%{transform:scale(1.15);opacity:1}100%{transform:scale(.35);opacity:0}}
+
+.reveal-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;min-height:320px;margin-bottom:20px}
+.reveal-slot{width:clamp(150px,22vw,220px)}
+.reveal-card{width:100%;aspect-ratio:600/840;border-radius:14px;overflow:hidden;opacity:0;transform:scale(.85);box-shadow:0 12px 30px -16px rgba(0,0,0,.25);transition:box-shadow .4s ease}
+.reveal-card img{width:100%;height:100%;object-fit:cover}
+.reveal-card.revealed{animation:cin .5s cubic-bezier(.2,.8,.25,1) forwards}
+@keyframes cin{0%{opacity:0;transform:scale(.85) translateY(20px)}60%{opacity:1;transform:scale(1.04)}100%{opacity:1;transform:scale(1)}}
+
+.reveal-card.revealed.rare{animation:cin .5s cubic-bezier(.2,.8,.25,1) forwards,gr 1.1s ease-out .4s 1}
+@keyframes gr{0%{box-shadow:0 0 0 0 rgba(74,111,165,.55),0 12px 30px -16px rgba(0,0,0,.25)}100%{box-shadow:0 0 0 24px rgba(74,111,165,0),0 12px 30px -16px rgba(0,0,0,.25)}}
+
+.reveal-card.revealed.epic{animation:cin .55s cubic-bezier(.2,.8,.25,1) forwards,ge 1.4s ease-out .4s 1}
+@keyframes ge{0%{box-shadow:0 0 0 0 rgba(124,74,140,.6),0 12px 30px -16px rgba(0,0,0,.25)}50%{box-shadow:0 0 0 18px rgba(124,74,140,.35),0 12px 30px -16px rgba(0,0,0,.25)}100%{box-shadow:0 0 0 30px rgba(124,74,140,0),0 12px 30px -16px rgba(0,0,0,.25)}}
+
+.reveal-card.revealed.legendary{animation:cin .6s cubic-bezier(.2,.8,.25,1) forwards,fl .3s ease-out .2s 1,gl 1.8s ease-out .5s 1}
+@keyframes fl{0%,100%{filter:brightness(1)}50%{filter:brightness(1.6)}}
+@keyframes gl{0%{box-shadow:0 0 0 0 rgba(212,175,55,.8),0 12px 30px -16px rgba(0,0,0,.25)}40%{box-shadow:0 0 0 22px rgba(212,175,55,.5),0 12px 30px -16px rgba(0,0,0,.25)}70%{box-shadow:0 0 0 12px rgba(212,175,55,.4),0 12px 30px -16px rgba(0,0,0,.25)}100%{box-shadow:0 0 0 40px rgba(212,175,55,0),0 12px 30px -16px rgba(0,0,0,.25)}}
+
+.rewards-banner{text-align:center;font-weight:500;font-size:14px;color:var(--gold-dk);padding:14px 20px;min-height:20px;opacity:0;transition:opacity .4s ease}
+.rewards-banner.visible{opacity:1}
+
+/* ── Collection ── */
+.collection-body{max-width:1200px;margin:0 auto}
+.col-section{margin-bottom:28px}
+.col-header{font-family:var(--hd);font-weight:700;font-size:14px;letter-spacing:2px;padding:14px 0 10px}
+.col-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px}
+.col-card{position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--border);background:var(--bg-card);aspect-ratio:600/840;transition:transform .18s ease,border-color .18s ease}
+.col-card:hover{transform:translateY(-3px);border-color:var(--text)}
+.col-card img{width:100%;height:100%;object-fit:cover}
+.col-badge{position:absolute;top:8px;right:8px;background:var(--text);color:#fff;border-radius:12px;font-family:var(--hd);font-weight:700;font-size:11px;padding:3px 9px;display:none}
+.col-card.dup .col-badge{display:block}
+.empty-msg{text-align:center;color:var(--muted);padding:60px 20px;line-height:1.6}
+
+/* ── Discounts ── */
+.discount-list{max-width:960px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
+.disc-tile{display:flex;align-items:center;gap:22px;background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:18px 28px;min-height:96px}
+.disc-pct{font-family:var(--hd);font-weight:900;font-size:34px;min-width:150px;line-height:1}
+.disc-info{flex:1}
+.disc-name{font-weight:500;font-size:14px;margin-bottom:5px}
+.disc-rarity{font-family:var(--hd);font-weight:700;font-size:10px;letter-spacing:2px}
+.disc-status{color:var(--muted);font-size:12px}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar{width:8px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px}
+::-webkit-scrollbar-thumb:hover{background:var(--gold)}
+</style>
+</head>
+<body>
+
+<!-- ─── MENU ────────────────────────────────── -->
+<section class="screen active" id="screen-menu">
+  <header class="topbar">
+    <div class="brand"><span class="brand-dot"></span><span class="brand-name">ЗОЛОТОЕ ЯБЛОКО</span></div>
+  </header>
+  <div class="hero">
+    <h1 class="hero-title">Коллекция<br/>красоты</h1>
+    <p class="hero-sub">Открывай наборы. Собирай карточки. Получай скидки.</p>
+    <div class="cta-row">
+      <button class="btn btn-primary" data-goto="packs">Открыть набор</button>
+      <button class="btn" data-goto="collection">Коллекция</button>
+      <button class="btn" data-goto="discounts">Мои скидки</button>
+    </div>
+  </div>
+  <footer class="menu-footer">
+    beauty &middot; perfume &middot; gift
+    <br/><button onclick="if(confirm('Сбросить весь прогресс?')){localStorage.removeItem('ga_save_v1');location.reload()}" style="margin-top:12px;font-size:11px;color:#aaa7a3;text-decoration:underline;cursor:pointer;background:none;border:none;font-family:inherit">сбросить прогресс</button>
+  </footer>
+</section>
+
+<!-- ─── PACK SELECTION ──────────────────────── -->
+<section class="screen" id="screen-packs">
+  <header class="topbar"><button class="btn btn-back" data-goto="menu">←&nbsp;&nbsp;Меню</button></header>
+  <div class="page-head"><h2 class="page-title">ВЫБОР НАБОРА</h2><p class="page-sub">три тира · разная вероятность редких карт</p></div>
+  <div class="pack-grid" id="pack-grid"></div>
+</section>
+
+<!-- ─── OPENING ─────────────────────────────── -->
+<section class="screen" id="screen-opening">
+  <header class="topbar"><button class="btn btn-back" data-goto="packs">←&nbsp;&nbsp;К выбору набора</button></header>
+  <h2 class="opening-title" id="opening-title"></h2>
+  <div class="pack-shake" id="pack-shake"><img id="pack-shake-img" src="" alt=""/></div>
+  <div class="reveal-row" id="reveal-row"></div>
+  <div class="rewards-banner" id="rewards-banner"></div>
+</section>
+
+<!-- ─── COLLECTION ──────────────────────────── -->
+<section class="screen" id="screen-collection">
+  <header class="topbar"><button class="btn btn-back" data-goto="menu">←&nbsp;&nbsp;Меню</button></header>
+  <div class="page-head"><h2 class="page-title">КОЛЛЕКЦИЯ</h2><p class="page-sub" id="col-meta">0 уникальных позиций</p></div>
+  <div class="collection-body" id="col-body"></div>
+</section>
+
+<!-- ─── DISCOUNTS ───────────────────────────── -->
+<section class="screen" id="screen-discounts">
+  <header class="topbar"><button class="btn btn-back" data-goto="menu">←&nbsp;&nbsp;Меню</button></header>
+  <div class="page-head"><h2 class="page-title">МОИ СКИДКИ</h2><p class="page-sub" id="disc-meta">0 активных</p></div>
+  <div class="discount-list" id="disc-list"></div>
+</section>
+
+<script>
+'use strict';
+
+/* ── Embedded data (from data/cards.json & probabilities.json) ── */
+
+const CARDS = [{"product_id":"C001","product_name":"Мицеллярная вода","brand":"Golden Apple","category":"Уход","rarity":"Common","image":"cards/common/micellar_water.png","discount_value":3},{"product_id":"C002","product_name":"Гигиеническая помада","brand":"Golden Apple","category":"Губы","rarity":"Common","image":"cards/common/lip_balm.png","discount_value":2},{"product_id":"C003","product_name":"Ватные диски","brand":"Golden Apple","category":"Аксессуары","rarity":"Common","image":"cards/common/cotton_pads.png","discount_value":1},{"product_id":"C004","product_name":"Крем для рук","brand":"Golden Apple","category":"Уход","rarity":"Common","image":"cards/common/hand_cream.png","discount_value":3},{"product_id":"C005","product_name":"Тоник для лица","brand":"Golden Apple","category":"Уход","rarity":"Common","image":"cards/common/face_tonic.png","discount_value":3},{"product_id":"C006","product_name":"Пилинг-скатка","brand":"Golden Apple","category":"Уход","rarity":"Common","image":"cards/common/peeling.png","discount_value":4},{"product_id":"C007","product_name":"Маска для лица тканевая","brand":"Golden Apple","category":"Уход","rarity":"Common","image":"cards/common/sheet_mask.png","discount_value":2},{"product_id":"C008","product_name":"Спонж для макияжа","brand":"Golden Apple","category":"Аксессуары","rarity":"Common","image":"cards/common/sponge.png","discount_value":2},{"product_id":"C009","product_name":"Лак для ногтей Classic","brand":"Golden Apple","category":"Ногти","rarity":"Common","image":"cards/common/nail_polish.png","discount_value":3},{"product_id":"C010","product_name":"Бальзам для губ","brand":"Golden Apple","category":"Губы","rarity":"Common","image":"cards/common/lip_care.png","discount_value":2},{"product_id":"C011","product_name":"Шампунь ежедневный","brand":"Golden Apple","category":"Волосы","rarity":"Common","image":"cards/common/shampoo.png","discount_value":3},{"product_id":"C012","product_name":"Кондиционер для волос","brand":"Golden Apple","category":"Волосы","rarity":"Common","image":"cards/common/conditioner.png","discount_value":3},{"product_id":"C013","product_name":"Гель для душа","brand":"Golden Apple","category":"Тело","rarity":"Common","image":"cards/common/shower_gel.png","discount_value":2},{"product_id":"C014","product_name":"Дезодорант","brand":"Golden Apple","category":"Тело","rarity":"Common","image":"cards/common/deodorant.png","discount_value":2},{"product_id":"C015","product_name":"Пена для умывания","brand":"Golden Apple","category":"Уход","rarity":"Common","image":"cards/common/cleansing_foam.png","discount_value":3},{"product_id":"C016","product_name":"Патчи для глаз","brand":"Golden Apple","category":"Уход","rarity":"Common","image":"cards/common/eye_patches.png","discount_value":3},{"product_id":"C017","product_name":"Скраб для тела","brand":"Golden Apple","category":"Тело","rarity":"Common","image":"cards/common/body_scrub.png","discount_value":3},{"product_id":"C018","product_name":"Масло для кутикулы","brand":"Golden Apple","category":"Ногти","rarity":"Common","image":"cards/common/cuticle_oil.png","discount_value":2},{"product_id":"C019","product_name":"Термозащита спрей","brand":"Golden Apple","category":"Волосы","rarity":"Common","image":"cards/common/heat_protect.png","discount_value":3},{"product_id":"C020","product_name":"Солнцезащитный крем SPF30","brand":"Golden Apple","category":"Уход","rarity":"Common","image":"cards/common/sunscreen.png","discount_value":4},{"product_id":"R001","product_name":"Тушь для ресниц Volume","brand":"Golden Apple","category":"Глаза","rarity":"Rare","image":"cards/rare/mascara_volume.png","discount_value":7},{"product_id":"R002","product_name":"Помада Velvet","brand":"Golden Apple","category":"Губы","rarity":"Rare","image":"cards/rare/lipstick_velvet.png","discount_value":8},{"product_id":"R003","product_name":"Палетка теней Nude","brand":"Golden Apple","category":"Глаза","rarity":"Rare","image":"cards/rare/eyeshadow_nude.png","discount_value":8},{"product_id":"R004","product_name":"BB-крем увлажняющий","brand":"Golden Apple","category":"Лицо","rarity":"Rare","image":"cards/rare/bb_cream.png","discount_value":7},{"product_id":"R005","product_name":"Хайлайтер Rose Gold","brand":"Golden Apple","category":"Лицо","rarity":"Rare","image":"cards/rare/highlighter.png","discount_value":8},{"product_id":"R006","product_name":"Консилер Pro","brand":"Golden Apple","category":"Лицо","rarity":"Rare","image":"cards/rare/concealer.png","discount_value":6},{"product_id":"R007","product_name":"Румяна Peachy","brand":"Golden Apple","category":"Лицо","rarity":"Rare","image":"cards/rare/blush.png","discount_value":7},{"product_id":"R008","product_name":"Карандаш для бровей","brand":"Golden Apple","category":"Брови","rarity":"Rare","image":"cards/rare/brow_pencil.png","discount_value":6},{"product_id":"R009","product_name":"Подводка Liquid Liner","brand":"Golden Apple","category":"Глаза","rarity":"Rare","image":"cards/rare/eyeliner.png","discount_value":7},{"product_id":"R010","product_name":"Сыворотка витамин C","brand":"Golden Apple","category":"Уход","rarity":"Rare","image":"cards/rare/vitamin_c_serum.png","discount_value":9},{"product_id":"R011","product_name":"Маска для волос кератин","brand":"Golden Apple","category":"Волосы","rarity":"Rare","image":"cards/rare/keratin_mask.png","discount_value":7},{"product_id":"R012","product_name":"Пудра матирующая","brand":"Golden Apple","category":"Лицо","rarity":"Rare","image":"cards/rare/powder_matte.png","discount_value":6},{"product_id":"R013","product_name":"Праймер Glow","brand":"Golden Apple","category":"Лицо","rarity":"Rare","image":"cards/rare/primer_glow.png","discount_value":7},{"product_id":"R014","product_name":"Блеск для губ Crystal","brand":"Golden Apple","category":"Губы","rarity":"Rare","image":"cards/rare/lip_gloss.png","discount_value":6},{"product_id":"R015","product_name":"Масло для тела Монои","brand":"Golden Apple","category":"Тело","rarity":"Rare","image":"cards/rare/body_oil.png","discount_value":8},{"product_id":"E001","product_name":"Парфюм Golden Aura","brand":"Golden Apple","category":"Парфюмерия","rarity":"Epic","image":"cards/epic/perfume_golden_aura.png","discount_value":15},{"product_id":"E002","product_name":"Палетка теней Midnight","brand":"Golden Apple","category":"Глаза","rarity":"Epic","image":"cards/epic/eyeshadow_midnight.png","discount_value":14},{"product_id":"E003","product_name":"Тональный крем Luxe","brand":"Golden Apple","category":"Лицо","rarity":"Epic","image":"cards/epic/foundation_luxe.png","discount_value":13},{"product_id":"E004","product_name":"Набор кистей Premium","brand":"Golden Apple","category":"Аксессуары","rarity":"Epic","image":"cards/epic/brush_set.png","discount_value":14},{"product_id":"E005","product_name":"Крем Anti-Age","brand":"Golden Apple","category":"Уход","rarity":"Epic","image":"cards/epic/anti_age_cream.png","discount_value":15},{"product_id":"E006","product_name":"Сыворотка ретинол","brand":"Golden Apple","category":"Уход","rarity":"Epic","image":"cards/epic/retinol_serum.png","discount_value":14},{"product_id":"E007","product_name":"Гель-лак коллекция Glam","brand":"Golden Apple","category":"Ногти","rarity":"Epic","image":"cards/epic/gel_polish_glam.png","discount_value":12},{"product_id":"E008","product_name":"Фен стайлер Ionic","brand":"Golden Apple","category":"Техника","rarity":"Epic","image":"cards/epic/ionic_dryer.png","discount_value":15},{"product_id":"E009","product_name":"Набор помад Ombré","brand":"Golden Apple","category":"Губы","rarity":"Epic","image":"cards/epic/lipstick_ombre_set.png","discount_value":13},{"product_id":"E010","product_name":"Парфюм Velvet Night","brand":"Golden Apple","category":"Парфюмерия","rarity":"Epic","image":"cards/epic/perfume_velvet_night.png","discount_value":15},{"product_id":"L001","product_name":"Парфюм Exclusive №1","brand":"Golden Apple","category":"Парфюмерия","rarity":"Legendary","image":"cards/legendary/perfume_exclusive.png","discount_value":25},{"product_id":"L002","product_name":"Бьюти-бокс Golden VIP","brand":"Golden Apple","category":"Набор","rarity":"Legendary","image":"cards/legendary/vip_beauty_box.png","discount_value":25},{"product_id":"L003","product_name":"Выпрямитель Titanium Pro","brand":"Golden Apple","category":"Техника","rarity":"Legendary","image":"cards/legendary/titanium_straightener.png","discount_value":20},{"product_id":"L004","product_name":"Коллекция Haute Couture","brand":"Golden Apple","category":"Набор","rarity":"Legendary","image":"cards/legendary/haute_couture_set.png","discount_value":25},{"product_id":"L005","product_name":"Золотая маска 24K","brand":"Golden Apple","category":"Уход","rarity":"Legendary","image":"cards/legendary/gold_mask_24k.png","discount_value":20}];
+
+const PROBABILITIES = {"Common Pack":{"Common":0.70,"Rare":0.20,"Epic":0.09,"Legendary":0.01},"Epic Pack":{"Common":0.40,"Rare":0.35,"Epic":0.20,"Legendary":0.05},"Legendary Pack":{"Common":0.20,"Rare":0.40,"Epic":0.30,"Legendary":0.10}};
+
+/* ── Config ── */
+const PACKS={
+  'Common Pack':{n:3,img:'assets/packs/common_pack.png',rarity:'Common'},
+  'Epic Pack':{n:4,img:'assets/packs/epic_pack.png',rarity:'Epic'},
+  'Legendary Pack':{n:5,img:'assets/packs/legendary_pack.png',rarity:'Legendary'},
+};
+const DUP=3;
+const DUP_DISC={Common:5,Rare:10,Epic:15,Legendary:25};
+const RARITY=['Common','Rare','Epic','Legendary'];
+const RC={'Common':'var(--r-c)','Rare':'var(--r-r)','Epic':'var(--r-e)','Legendary':'var(--r-l)'};
+const SAVE_KEY='ga_save_v1';
+
+/* ── State ── */
+const byId=Object.fromEntries(CARDS.map(c=>[c.product_id,c]));
+let save=loadSave();
+
+function emptySave(){return{cc:{},cm:{},disc:[],po:{}}}
+function loadSave(){try{const r=localStorage.getItem(SAVE_KEY);return r?Object.assign(emptySave(),JSON.parse(r)):emptySave()}catch(e){return emptySave()}}
+function persist(){try{localStorage.setItem(SAVE_KEY,JSON.stringify(save))}catch(e){}}
+
+/* ── Router ── */
+function go(s){
+  document.querySelectorAll('.screen').forEach(el=>el.classList.remove('active'));
+  const t=document.getElementById('screen-'+s);if(!t)return;t.classList.add('active');
+  if(s==='packs')renderPacks();
+  if(s==='collection')renderCol();
+  if(s==='discounts')renderDisc();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-goto]');if(b){e.preventDefault();go(b.dataset.goto)}});
+
+/* ── Pack logic ── */
+function roll(packType,count){
+  const t=PROBABILITIES[packType]||PROBABILITIES['Common Pack'];
+  const rs=Object.keys(t),ws=rs.map(r=>t[r]),tot=ws.reduce((a,b)=>a+b,0);
+  const out=[];
+  for(let i=0;i<count;i++){let r=Math.random()*tot;for(let j=0;j<rs.length;j++){r-=ws[j];if(r<=0){out.push(rs[j]);break}}}
+  return out;
+}
+function pick(rarity){
+  let pool=CARDS.filter(c=>c.rarity===rarity);
+  if(!pool.length)pool=CARDS.filter(c=>c.rarity==='Common');
+  return pool[Math.floor(Math.random()*pool.length)]||null;
+}
+function openPack(pt){
+  const cfg=PACKS[pt];if(!cfg)return{cards:[],rewards:[]};
+  const cards=roll(pt,cfg.n).map(r=>pick(r)).filter(Boolean);
+  const rewards=[];
+  for(const c of cards){
+    const p=c.product_id;
+    save.cc[p]=(save.cc[p]||0)+1;
+    save.cm[p]={product_name:c.product_name,rarity:c.rarity,image:c.image,category:c.category,discount_value:c.discount_value};
+  }
+  for(const c of cards){
+    const p=c.product_id;
+    if(save.cc[p]>=DUP){
+      save.cc[p]-=DUP;
+      const pct=DUP_DISC[c.rarity]||5;
+      const rw={product_name:c.product_name,rarity:c.rarity,discount_percent:pct};
+      save.disc.push(rw);rewards.push(rw);
+    }
+  }
+  save.po[pt]=(save.po[pt]||0)+1;
+  persist();
+  return{cards,rewards};
+}
+
+/* ── Render: packs ── */
+function renderPacks(){
+  const g=document.getElementById('pack-grid');g.innerHTML='';
+  [{t:'Common Pack',title:'COMMON PACK',r:'Common',s:'базовый · 3 карты'},
+   {t:'Epic Pack',title:'EPIC PACK',r:'Epic',s:'расширенный · 4 карты'},
+   {t:'Legendary Pack',title:'LEGENDARY PACK',r:'Legendary',s:'флагман · 5 карт'}].forEach(p=>{
+    const el=document.createElement('button');
+    el.className='pack-card';el.dataset.rarity=p.r;
+    el.innerHTML=`<span class="pack-accent"></span><img class="pack-image" src="${PACKS[p.t].img}" alt="${p.title}"/><div class="pack-name">${p.title}</div><div class="pack-meta">${p.s}</div><div class="pack-cta">Открыть</div>`;
+    el.addEventListener('click',()=>startOpening(p.t));
+    g.appendChild(el);
+  });
+}
+
+/* ── Render: opening ── */
+function startOpening(pt){
+  go('opening');
+  document.getElementById('opening-title').textContent=pt.replace(' Pack','').toUpperCase();
+  const shake=document.getElementById('pack-shake');
+  const img=document.getElementById('pack-shake-img');
+  const row=document.getElementById('reveal-row');
+  const banner=document.getElementById('rewards-banner');
+  shake.className='pack-shake';shake.style.display='flex';
+  img.src=PACKS[pt].img;
+  row.innerHTML='';banner.className='rewards-banner';banner.textContent='';
+
+  const{cards,rewards}=openPack(pt);
+  cards.forEach(c=>{
+    const slot=document.createElement('div');slot.className='reveal-slot';
+    slot.innerHTML=`<div class="reveal-card" data-rarity="${c.rarity}"><img src="assets/${c.image}" alt="${c.product_name}" onerror="this.style.display='none';this.parentElement.innerHTML='<div style=\\'display:flex;align-items:center;justify-content:center;height:100%;background:#f4f1eb;font-size:12px;padding:16px;text-align:center;color:#8A8680\\'>${c.product_name}</div>'"/></div>`;
+    row.appendChild(slot);
+  });
+
+  setTimeout(()=>shake.classList.add('shake'),80);
+  setTimeout(()=>{shake.classList.remove('shake');shake.classList.add('burst')},780);
+  setTimeout(()=>{shake.style.display='none';revealSeq(row,cards,rewards)},1250);
+}
+function revealSeq(row,cards,rewards){
+  const els=row.querySelectorAll('.reveal-card');
+  let i=0;
+  (function step(){
+    if(i>=els.length){
+      if(rewards.length){
+        const b=document.getElementById('rewards-banner');
+        b.textContent='✦ '+rewards.map(r=>`${r.discount_percent}% скидка (${r.product_name})`).join(' · ');
+        b.classList.add('visible');
+      }
+      return;
+    }
+    const el=els[i],r=cards[i].rarity.toLowerCase();
+    el.classList.add('revealed',r);i++;
+    const pause=r==='legendary'?900:r==='epic'?750:r==='rare'?600:500;
+    setTimeout(step,pause);
+  })();
+}
+
+/* ── Render: collection ── */
+function renderCol(){
+  const body=document.getElementById('col-body');body.innerHTML='';
+  const owned=Object.entries(save.cc).filter(([,c])=>c>0);
+  document.getElementById('col-meta').textContent=`${owned.length} уникальных позиций`;
+  if(!owned.length){body.innerHTML='<div class="empty-msg">Коллекция пока пуста.<br/>Откройте свой первый набор.</div>';return}
+  for(const rarity of RARITY){
+    const items=owned.map(([pid,count])=>({pid,count,m:save.cm[pid]||byId[pid]})).filter(it=>it.m&&it.m.rarity===rarity);
+    if(!items.length)continue;
+    const sec=document.createElement('div');sec.className='col-section';
+    const hd=document.createElement('div');hd.className='col-header';hd.textContent=`${rarity.toUpperCase()}  ·  ${items.length}`;hd.style.color=RC[rarity];
+    sec.appendChild(hd);
+    const grid=document.createElement('div');grid.className='col-grid';
+    for(const it of items){
+      const card=document.createElement('div');card.className='col-card'+(it.count>1?' dup':'');
+      card.innerHTML=`<img src="assets/${it.m.image}" alt="${it.m.product_name}" onerror="this.style.display='none';this.parentElement.innerHTML+='<div style=\\'display:flex;align-items:center;justify-content:center;height:100%;background:#f4f1eb;font-size:11px;padding:12px;text-align:center;color:#8A8680;position:absolute;inset:0\\'>${it.m.product_name}</div>'"/><div class="col-badge">×${it.count}</div>`;
+      grid.appendChild(card);
+    }
+    sec.appendChild(grid);body.appendChild(sec);
+  }
+}
+
+/* ── Render: discounts ── */
+function renderDisc(){
+  const list=document.getElementById('disc-list');list.innerHTML='';
+  const d=save.disc;
+  document.getElementById('disc-meta').textContent=d.length?`${d.length} активных`:'пока нет скидок';
+  if(!d.length){list.innerHTML='<div class="empty-msg">Соберите 3 одинаковые карточки —<br/>получите персональную скидку.</div>';return}
+  for(const x of d){
+    const t=document.createElement('div');t.className='disc-tile';
+    const c=RC[x.rarity];
+    t.innerHTML=`<div class="disc-pct" style="color:${c}">−${x.discount_percent}%</div><div class="disc-info"><div class="disc-name">${x.product_name}</div><div class="disc-rarity" style="color:${c}">${x.rarity.toUpperCase()}</div></div><div class="disc-status">активна</div>`;
+    list.appendChild(t);
+  }
+}
+
+/* ── Boot ── */
+if(location.protocol==='file:'){
+  const w=document.createElement('div');
+  w.style.cssText='position:fixed;top:0;left:0;right:0;background:#0F0F0F;color:#F7F5F0;padding:14px 24px;font-size:13px;z-index:999;text-align:center;font-family:var(--bd)';
+  w.innerHTML='⚠ Открыт как файл — картинки могут не загрузиться. Запусти через сервер: <code style="background:#333;padding:2px 8px;border-radius:4px;margin:0 4px">python -m http.server</code> → <a href="http://localhost:8000" style="color:var(--gold)">localhost:8000</a>';
+  document.body.prepend(w);
+}
+go('menu');
+</script>
+</body>
+</html>
