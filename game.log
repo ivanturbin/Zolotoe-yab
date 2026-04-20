@@ -1,0 +1,224 @@
+[2026-04-19 17:53:58] INFO     main — ═══ Золотое Яблоко — запуск ═══
+[2026-04-19 17:53:58] DEBUG    utils.theme — Loaded heading font: Unbounded-Medium.ttf (Unbounded)
+[2026-04-19 17:53:58] DEBUG    utils.theme — Loaded heading font: Unbounded-Bold.ttf (Unbounded)
+[2026-04-19 17:53:58] DEBUG    utils.theme — Loaded heading font: Unbounded-Black.ttf (Unbounded)
+[2026-04-19 17:53:58] DEBUG    utils.theme — Loaded body font: Inter-Regular.ttf (Inter)
+[2026-04-19 17:53:58] DEBUG    utils.theme — Loaded body font: Inter-Medium.ttf (Inter)
+[2026-04-19 17:53:58] DEBUG    utils.theme — Loaded body font: Inter-Bold.ttf (Inter)
+[2026-04-19 17:53:58] INFO     utils.theme — Brand fonts loaded: headings=Unbounded, body=Inter
+[2026-04-19 17:53:58] INFO     core.rarity_system — RaritySystem initialised with 4 tiers.
+[2026-04-19 17:53:58] INFO     core.probability_system — Probabilities loaded from C:\Users\Ivant\Documents\GitHub\Zolotoe yab\data\probabilities.json
+[2026-04-19 17:53:58] INFO     core.pack_system — Card database loaded: 50 cards across 4 rarities.
+[2026-04-19 17:53:58] INFO     utils.asset_loader — Asset loading started …
+[2026-04-19 17:53:58] DEBUG    utils.asset_loader — Loaded card texture [Common] body_scrub
+[2026-04-19 17:53:58] DEBUG    utils.asset_loader — Loaded card texture [Common] cleansing_foam
+[2026-04-19 17:53:58] DEBUG    utils.asset_loader — Loaded card texture [Common] conditioner
+[2026-04-19 17:53:58] DEBUG    utils.asset_loader — Loaded card texture [Common] cotton_pads
+[2026-04-19 17:53:58] DEBUG    utils.asset_loader — Loaded card texture [Common] cuticle_oil
+[2026-04-19 17:53:58] DEBUG    utils.asset_loader — Loaded card texture [Common] deodorant
+[2026-04-19 17:53:58] DEBUG    utils.asset_loader — Loaded card texture [Common] eye_patches
+[2026-04-19 17:53:58] DEBUG    utils.asset_loader — Loaded card texture [Common] face_tonic
+[2026-04-19 17:53:58] DEBUG    utils.asset_loader — Loaded card texture [Common] hand_cream
+[2026-04-19 17:53:58] DEBUG    utils.asset_loader — Loaded card texture [Common] heat_protect
+[2026-04-19 17:53:58] DEBUG    utils.asset_loader — Loaded card texture [Common] lip_balm
+[2026-04-19 17:53:58] DEBUG    utils.asset_loader — Loaded card texture [Common] lip_care
+[2026-04-19 17:53:58] DEBUG    utils.asset_loader — Loaded card texture [Common] micellar_water
+[2026-04-19 17:53:58] DEBUG    utils.asset_loader — Loaded card texture [Common] nail_polish
+[2026-04-19 17:53:58] DEBUG    utils.asset_loader — Loaded card texture [Common] peeling
+[2026-04-19 17:53:58] DEBUG    utils.asset_loader — Loaded card texture [Common] shampoo
+[2026-04-19 17:53:58] DEBUG    utils.asset_loader — Loaded card texture [Common] sheet_mask
+[2026-04-19 17:53:58] DEBUG    utils.asset_loader — Loaded card texture [Common] shower_gel
+[2026-04-19 17:53:58] DEBUG    utils.asset_loader — Loaded card texture [Common] sponge
+[2026-04-19 17:53:58] DEBUG    utils.asset_loader — Loaded card texture [Common] sunscreen
+[2026-04-19 17:53:58] DEBUG    utils.asset_loader — Loaded card texture [Rare] bb_cream
+[2026-04-19 17:53:58] DEBUG    utils.asset_loader — Loaded card texture [Rare] blush
+[2026-04-19 17:53:58] DEBUG    utils.asset_loader — Loaded card texture [Rare] body_oil
+[2026-04-19 17:53:58] DEBUG    utils.asset_loader — Loaded card texture [Rare] brow_pencil
+[2026-04-19 17:53:58] DEBUG    utils.asset_loader — Loaded card texture [Rare] concealer
+[2026-04-19 17:53:58] DEBUG    utils.asset_loader — Loaded card texture [Rare] eyeliner
+[2026-04-19 17:53:58] DEBUG    utils.asset_loader — Loaded card texture [Rare] eyeshadow_nude
+[2026-04-19 17:53:58] DEBUG    utils.asset_loader — Loaded card texture [Rare] highlighter
+[2026-04-19 17:53:58] DEBUG    utils.asset_loader — Loaded card texture [Rare] keratin_mask
+[2026-04-19 17:53:58] DEBUG    utils.asset_loader — Loaded card texture [Rare] lip_gloss
+[2026-04-19 17:53:58] DEBUG    utils.asset_loader — Loaded card texture [Rare] lipstick_velvet
+[2026-04-19 17:53:58] DEBUG    utils.asset_loader — Loaded card texture [Rare] mascara_volume
+[2026-04-19 17:53:58] DEBUG    utils.asset_loader — Loaded card texture [Rare] powder_matte
+[2026-04-19 17:53:59] DEBUG    utils.asset_loader — Loaded card texture [Rare] primer_glow
+[2026-04-19 17:53:59] DEBUG    utils.asset_loader — Loaded card texture [Rare] vitamin_c_serum
+[2026-04-19 17:53:59] DEBUG    utils.asset_loader — Loaded card texture [Epic] anti_age_cream
+[2026-04-19 17:53:59] DEBUG    utils.asset_loader — Loaded card texture [Epic] brush_set
+[2026-04-19 17:53:59] DEBUG    utils.asset_loader — Loaded card texture [Epic] eyeshadow_midnight
+[2026-04-19 17:53:59] DEBUG    utils.asset_loader — Loaded card texture [Epic] foundation_luxe
+[2026-04-19 17:53:59] DEBUG    utils.asset_loader — Loaded card texture [Epic] gel_polish_glam
+[2026-04-19 17:53:59] DEBUG    utils.asset_loader — Loaded card texture [Epic] ionic_dryer
+[2026-04-19 17:53:59] DEBUG    utils.asset_loader — Loaded card texture [Epic] lipstick_ombre_set
+[2026-04-19 17:53:59] DEBUG    utils.asset_loader — Loaded card texture [Epic] perfume_golden_aura
+[2026-04-19 17:53:59] DEBUG    utils.asset_loader — Loaded card texture [Epic] perfume_velvet_night
+[2026-04-19 17:53:59] DEBUG    utils.asset_loader — Loaded card texture [Epic] retinol_serum
+[2026-04-19 17:53:59] DEBUG    utils.asset_loader — Loaded card texture [Legendary] gold_mask_24k
+[2026-04-19 17:53:59] DEBUG    utils.asset_loader — Loaded card texture [Legendary] haute_couture_set
+[2026-04-19 17:53:59] DEBUG    utils.asset_loader — Loaded card texture [Legendary] perfume_exclusive
+[2026-04-19 17:53:59] DEBUG    utils.asset_loader — Loaded card texture [Legendary] titanium_straightener
+[2026-04-19 17:53:59] DEBUG    utils.asset_loader — Loaded card texture [Legendary] vip_beauty_box
+[2026-04-19 17:53:59] WARNING  utils.asset_loader — Effects directory missing: C:\Users\Ivant\Documents\GitHub\Zolotoe yab\assets\effects
+[2026-04-19 17:53:59] INFO     utils.asset_loader — Asset loading complete.
+[2026-04-19 17:53:59] INFO     core.save_system — No save file found — starting fresh.
+[2026-04-19 17:53:59] INFO     core.game_manager — GameManager initialised.
+[2026-04-19 17:53:59] INFO     main — UI готов — запуск event loop.
+[2026-04-19 17:54:02] INFO     core.pack_system — Opened Legendary Pack → 5 cards.
+[2026-04-19 17:54:02] DEBUG    core.save_system — Progress saved.
+[2026-04-19 17:54:02] WARNING  utils.asset_loader — Sound not found: open_legendary.wav
+[2026-04-19 17:54:02] DEBUG    animation.animation_manager — Playing Legendary Pack animation.
+[2026-04-19 17:54:13] INFO     core.pack_system — Opened Legendary Pack → 5 cards.
+[2026-04-19 17:54:13] DEBUG    core.save_system — Progress saved.
+[2026-04-19 17:54:13] WARNING  utils.asset_loader — Sound not found: open_legendary.wav
+[2026-04-19 17:54:13] DEBUG    animation.animation_manager — Playing Legendary Pack animation.
+[2026-04-19 17:54:29] INFO     core.pack_system — Opened Legendary Pack → 5 cards.
+[2026-04-19 17:54:29] DEBUG    core.save_system — Progress saved.
+[2026-04-19 17:54:29] WARNING  utils.asset_loader — Sound not found: open_legendary.wav
+[2026-04-19 17:54:29] DEBUG    animation.animation_manager — Playing Legendary Pack animation.
+[2026-04-19 18:04:06] INFO     main — ═══ Золотое Яблоко — запуск ═══
+[2026-04-19 18:04:06] DEBUG    utils.theme — Loaded heading font: Unbounded-Medium.ttf (Unbounded)
+[2026-04-19 18:04:06] DEBUG    utils.theme — Loaded heading font: Unbounded-Bold.ttf (Unbounded)
+[2026-04-19 18:04:06] DEBUG    utils.theme — Loaded heading font: Unbounded-Black.ttf (Unbounded)
+[2026-04-19 18:04:06] DEBUG    utils.theme — Loaded body font: Inter-Regular.ttf (Inter)
+[2026-04-19 18:04:06] DEBUG    utils.theme — Loaded body font: Inter-Medium.ttf (Inter)
+[2026-04-19 18:04:06] DEBUG    utils.theme — Loaded body font: Inter-Bold.ttf (Inter)
+[2026-04-19 18:04:06] INFO     utils.theme — Brand fonts loaded: headings=Unbounded, body=Inter
+[2026-04-19 18:04:06] INFO     core.rarity_system — RaritySystem initialised with 4 tiers.
+[2026-04-19 18:04:06] INFO     core.probability_system — Probabilities loaded from C:\Users\Ivant\Documents\GitHub\Zolotoe yab\data\probabilities.json
+[2026-04-19 18:04:06] INFO     core.pack_system — Card database loaded: 50 cards across 4 rarities.
+[2026-04-19 18:04:06] INFO     utils.asset_loader — Asset loading started …
+[2026-04-19 18:04:06] DEBUG    utils.asset_loader — Loaded card texture [Common] body_scrub
+[2026-04-19 18:04:06] DEBUG    utils.asset_loader — Loaded card texture [Common] cleansing_foam
+[2026-04-19 18:04:06] DEBUG    utils.asset_loader — Loaded card texture [Common] conditioner
+[2026-04-19 18:04:06] DEBUG    utils.asset_loader — Loaded card texture [Common] cotton_pads
+[2026-04-19 18:04:06] DEBUG    utils.asset_loader — Loaded card texture [Common] cuticle_oil
+[2026-04-19 18:04:06] DEBUG    utils.asset_loader — Loaded card texture [Common] deodorant
+[2026-04-19 18:04:06] DEBUG    utils.asset_loader — Loaded card texture [Common] eye_patches
+[2026-04-19 18:04:06] DEBUG    utils.asset_loader — Loaded card texture [Common] face_tonic
+[2026-04-19 18:04:06] DEBUG    utils.asset_loader — Loaded card texture [Common] hand_cream
+[2026-04-19 18:04:06] DEBUG    utils.asset_loader — Loaded card texture [Common] heat_protect
+[2026-04-19 18:04:06] DEBUG    utils.asset_loader — Loaded card texture [Common] lip_balm
+[2026-04-19 18:04:06] DEBUG    utils.asset_loader — Loaded card texture [Common] lip_care
+[2026-04-19 18:04:06] DEBUG    utils.asset_loader — Loaded card texture [Common] micellar_water
+[2026-04-19 18:04:06] DEBUG    utils.asset_loader — Loaded card texture [Common] nail_polish
+[2026-04-19 18:04:06] DEBUG    utils.asset_loader — Loaded card texture [Common] peeling
+[2026-04-19 18:04:06] DEBUG    utils.asset_loader — Loaded card texture [Common] shampoo
+[2026-04-19 18:04:06] DEBUG    utils.asset_loader — Loaded card texture [Common] sheet_mask
+[2026-04-19 18:04:06] DEBUG    utils.asset_loader — Loaded card texture [Common] shower_gel
+[2026-04-19 18:04:06] DEBUG    utils.asset_loader — Loaded card texture [Common] sponge
+[2026-04-19 18:04:06] DEBUG    utils.asset_loader — Loaded card texture [Common] sunscreen
+[2026-04-19 18:04:06] DEBUG    utils.asset_loader — Loaded card texture [Rare] bb_cream
+[2026-04-19 18:04:06] DEBUG    utils.asset_loader — Loaded card texture [Rare] blush
+[2026-04-19 18:04:06] DEBUG    utils.asset_loader — Loaded card texture [Rare] body_oil
+[2026-04-19 18:04:06] DEBUG    utils.asset_loader — Loaded card texture [Rare] brow_pencil
+[2026-04-19 18:04:06] DEBUG    utils.asset_loader — Loaded card texture [Rare] concealer
+[2026-04-19 18:04:06] DEBUG    utils.asset_loader — Loaded card texture [Rare] eyeliner
+[2026-04-19 18:04:06] DEBUG    utils.asset_loader — Loaded card texture [Rare] eyeshadow_nude
+[2026-04-19 18:04:06] DEBUG    utils.asset_loader — Loaded card texture [Rare] highlighter
+[2026-04-19 18:04:06] DEBUG    utils.asset_loader — Loaded card texture [Rare] keratin_mask
+[2026-04-19 18:04:06] DEBUG    utils.asset_loader — Loaded card texture [Rare] lip_gloss
+[2026-04-19 18:04:06] DEBUG    utils.asset_loader — Loaded card texture [Rare] lipstick_velvet
+[2026-04-19 18:04:06] DEBUG    utils.asset_loader — Loaded card texture [Rare] mascara_volume
+[2026-04-19 18:04:06] DEBUG    utils.asset_loader — Loaded card texture [Rare] powder_matte
+[2026-04-19 18:04:06] DEBUG    utils.asset_loader — Loaded card texture [Rare] primer_glow
+[2026-04-19 18:04:06] DEBUG    utils.asset_loader — Loaded card texture [Rare] vitamin_c_serum
+[2026-04-19 18:04:06] DEBUG    utils.asset_loader — Loaded card texture [Epic] anti_age_cream
+[2026-04-19 18:04:06] DEBUG    utils.asset_loader — Loaded card texture [Epic] brush_set
+[2026-04-19 18:04:06] DEBUG    utils.asset_loader — Loaded card texture [Epic] eyeshadow_midnight
+[2026-04-19 18:04:06] DEBUG    utils.asset_loader — Loaded card texture [Epic] foundation_luxe
+[2026-04-19 18:04:06] DEBUG    utils.asset_loader — Loaded card texture [Epic] gel_polish_glam
+[2026-04-19 18:04:06] DEBUG    utils.asset_loader — Loaded card texture [Epic] ionic_dryer
+[2026-04-19 18:04:06] DEBUG    utils.asset_loader — Loaded card texture [Epic] lipstick_ombre_set
+[2026-04-19 18:04:06] DEBUG    utils.asset_loader — Loaded card texture [Epic] perfume_golden_aura
+[2026-04-19 18:04:06] DEBUG    utils.asset_loader — Loaded card texture [Epic] perfume_velvet_night
+[2026-04-19 18:04:06] DEBUG    utils.asset_loader — Loaded card texture [Epic] retinol_serum
+[2026-04-19 18:04:06] DEBUG    utils.asset_loader — Loaded card texture [Legendary] gold_mask_24k
+[2026-04-19 18:04:06] DEBUG    utils.asset_loader — Loaded card texture [Legendary] haute_couture_set
+[2026-04-19 18:04:06] DEBUG    utils.asset_loader — Loaded card texture [Legendary] perfume_exclusive
+[2026-04-19 18:04:06] DEBUG    utils.asset_loader — Loaded card texture [Legendary] titanium_straightener
+[2026-04-19 18:04:06] DEBUG    utils.asset_loader — Loaded card texture [Legendary] vip_beauty_box
+[2026-04-19 18:04:06] WARNING  utils.asset_loader — Effects directory missing: C:\Users\Ivant\Documents\GitHub\Zolotoe yab\assets\effects
+[2026-04-19 18:04:06] INFO     utils.asset_loader — Asset loading complete.
+[2026-04-19 18:04:06] INFO     core.save_system — Save loaded from C:\Users\Ivant\Documents\GitHub\Zolotoe yab\data\player_save.json
+[2026-04-19 18:04:06] INFO     core.game_manager — Restored 13 card entries from save.
+[2026-04-19 18:04:06] INFO     core.game_manager — GameManager initialised.
+[2026-04-19 18:04:06] INFO     main — UI готов — запуск event loop.
+[2026-04-19 18:04:40] INFO     core.pack_system — Opened Epic Pack → 4 cards.
+[2026-04-19 18:04:40] DEBUG    core.save_system — Progress saved.
+[2026-04-19 18:04:40] WARNING  utils.asset_loader — Sound not found: open_epic.wav
+[2026-04-19 18:04:40] DEBUG    animation.animation_manager — Playing Epic Pack animation.
+[2026-04-19 18:05:06] INFO     core.pack_system — Opened Legendary Pack → 5 cards.
+[2026-04-19 18:05:06] INFO     core.duplicate_system — Merged 3x 'Маска для волос кератин' → 10% discount.
+[2026-04-19 18:05:06] DEBUG    core.save_system — Progress saved.
+[2026-04-19 18:05:06] WARNING  utils.asset_loader — Sound not found: open_legendary.wav
+[2026-04-19 18:05:06] DEBUG    animation.animation_manager — Playing Legendary Pack animation.
+[2026-04-20 11:08:54] INFO     main — ═══ Золотое Яблоко — запуск ═══
+[2026-04-20 11:08:54] DEBUG    utils.theme — Loaded heading font: Unbounded-Medium.ttf (Unbounded)
+[2026-04-20 11:08:54] DEBUG    utils.theme — Loaded heading font: Unbounded-Bold.ttf (Unbounded)
+[2026-04-20 11:08:54] DEBUG    utils.theme — Loaded heading font: Unbounded-Black.ttf (Unbounded)
+[2026-04-20 11:08:54] DEBUG    utils.theme — Loaded body font: Inter-Regular.ttf (Inter)
+[2026-04-20 11:08:54] DEBUG    utils.theme — Loaded body font: Inter-Medium.ttf (Inter)
+[2026-04-20 11:08:54] DEBUG    utils.theme — Loaded body font: Inter-Bold.ttf (Inter)
+[2026-04-20 11:08:54] INFO     utils.theme — Brand fonts loaded: headings=Unbounded, body=Inter
+[2026-04-20 11:08:54] INFO     core.rarity_system — RaritySystem initialised with 4 tiers.
+[2026-04-20 11:08:54] INFO     core.probability_system — Probabilities loaded from C:\Users\Ivant\Documents\GitHub\Zolotoe yab\data\probabilities.json
+[2026-04-20 11:08:54] INFO     core.pack_system — Card database loaded: 50 cards across 4 rarities.
+[2026-04-20 11:08:54] INFO     utils.asset_loader — Asset loading started …
+[2026-04-20 11:08:55] DEBUG    utils.asset_loader — Loaded card texture [Common] body_scrub
+[2026-04-20 11:08:55] DEBUG    utils.asset_loader — Loaded card texture [Common] cleansing_foam
+[2026-04-20 11:08:55] DEBUG    utils.asset_loader — Loaded card texture [Common] conditioner
+[2026-04-20 11:08:55] DEBUG    utils.asset_loader — Loaded card texture [Common] cotton_pads
+[2026-04-20 11:08:55] DEBUG    utils.asset_loader — Loaded card texture [Common] cuticle_oil
+[2026-04-20 11:08:55] DEBUG    utils.asset_loader — Loaded card texture [Common] deodorant
+[2026-04-20 11:08:55] DEBUG    utils.asset_loader — Loaded card texture [Common] eye_patches
+[2026-04-20 11:08:55] DEBUG    utils.asset_loader — Loaded card texture [Common] face_tonic
+[2026-04-20 11:08:55] DEBUG    utils.asset_loader — Loaded card texture [Common] hand_cream
+[2026-04-20 11:08:55] DEBUG    utils.asset_loader — Loaded card texture [Common] heat_protect
+[2026-04-20 11:08:55] DEBUG    utils.asset_loader — Loaded card texture [Common] lip_balm
+[2026-04-20 11:08:55] DEBUG    utils.asset_loader — Loaded card texture [Common] lip_care
+[2026-04-20 11:08:55] DEBUG    utils.asset_loader — Loaded card texture [Common] micellar_water
+[2026-04-20 11:08:55] DEBUG    utils.asset_loader — Loaded card texture [Common] nail_polish
+[2026-04-20 11:08:55] DEBUG    utils.asset_loader — Loaded card texture [Common] peeling
+[2026-04-20 11:08:55] DEBUG    utils.asset_loader — Loaded card texture [Common] shampoo
+[2026-04-20 11:08:55] DEBUG    utils.asset_loader — Loaded card texture [Common] sheet_mask
+[2026-04-20 11:08:55] DEBUG    utils.asset_loader — Loaded card texture [Common] shower_gel
+[2026-04-20 11:08:55] DEBUG    utils.asset_loader — Loaded card texture [Common] sponge
+[2026-04-20 11:08:55] DEBUG    utils.asset_loader — Loaded card texture [Common] sunscreen
+[2026-04-20 11:08:55] DEBUG    utils.asset_loader — Loaded card texture [Rare] bb_cream
+[2026-04-20 11:08:55] DEBUG    utils.asset_loader — Loaded card texture [Rare] blush
+[2026-04-20 11:08:55] DEBUG    utils.asset_loader — Loaded card texture [Rare] body_oil
+[2026-04-20 11:08:55] DEBUG    utils.asset_loader — Loaded card texture [Rare] brow_pencil
+[2026-04-20 11:08:55] DEBUG    utils.asset_loader — Loaded card texture [Rare] concealer
+[2026-04-20 11:08:55] DEBUG    utils.asset_loader — Loaded card texture [Rare] eyeliner
+[2026-04-20 11:08:55] DEBUG    utils.asset_loader — Loaded card texture [Rare] eyeshadow_nude
+[2026-04-20 11:08:55] DEBUG    utils.asset_loader — Loaded card texture [Rare] highlighter
+[2026-04-20 11:08:55] DEBUG    utils.asset_loader — Loaded card texture [Rare] keratin_mask
+[2026-04-20 11:08:55] DEBUG    utils.asset_loader — Loaded card texture [Rare] lip_gloss
+[2026-04-20 11:08:55] DEBUG    utils.asset_loader — Loaded card texture [Rare] lipstick_velvet
+[2026-04-20 11:08:55] DEBUG    utils.asset_loader — Loaded card texture [Rare] mascara_volume
+[2026-04-20 11:08:55] DEBUG    utils.asset_loader — Loaded card texture [Rare] powder_matte
+[2026-04-20 11:08:55] DEBUG    utils.asset_loader — Loaded card texture [Rare] primer_glow
+[2026-04-20 11:08:55] DEBUG    utils.asset_loader — Loaded card texture [Rare] vitamin_c_serum
+[2026-04-20 11:08:55] DEBUG    utils.asset_loader — Loaded card texture [Epic] anti_age_cream
+[2026-04-20 11:08:55] DEBUG    utils.asset_loader — Loaded card texture [Epic] brush_set
+[2026-04-20 11:08:55] DEBUG    utils.asset_loader — Loaded card texture [Epic] eyeshadow_midnight
+[2026-04-20 11:08:55] DEBUG    utils.asset_loader — Loaded card texture [Epic] foundation_luxe
+[2026-04-20 11:08:55] DEBUG    utils.asset_loader — Loaded card texture [Epic] gel_polish_glam
+[2026-04-20 11:08:55] DEBUG    utils.asset_loader — Loaded card texture [Epic] ionic_dryer
+[2026-04-20 11:08:55] DEBUG    utils.asset_loader — Loaded card texture [Epic] lipstick_ombre_set
+[2026-04-20 11:08:55] DEBUG    utils.asset_loader — Loaded card texture [Epic] perfume_golden_aura
+[2026-04-20 11:08:55] DEBUG    utils.asset_loader — Loaded card texture [Epic] perfume_velvet_night
+[2026-04-20 11:08:55] DEBUG    utils.asset_loader — Loaded card texture [Epic] retinol_serum
+[2026-04-20 11:08:55] DEBUG    utils.asset_loader — Loaded card texture [Legendary] gold_mask_24k
+[2026-04-20 11:08:55] DEBUG    utils.asset_loader — Loaded card texture [Legendary] haute_couture_set
+[2026-04-20 11:08:55] DEBUG    utils.asset_loader — Loaded card texture [Legendary] perfume_exclusive
+[2026-04-20 11:08:55] DEBUG    utils.asset_loader — Loaded card texture [Legendary] titanium_straightener
+[2026-04-20 11:08:55] DEBUG    utils.asset_loader — Loaded card texture [Legendary] vip_beauty_box
+[2026-04-20 11:08:55] WARNING  utils.asset_loader — Effects directory missing: C:\Users\Ivant\Documents\GitHub\Zolotoe yab\assets\effects
+[2026-04-20 11:08:55] INFO     utils.asset_loader — Asset loading complete.
+[2026-04-20 11:08:55] INFO     core.save_system — Save loaded from C:\Users\Ivant\Documents\GitHub\Zolotoe yab\data\player_save.json
+[2026-04-20 11:08:55] INFO     core.game_manager — Restored 16 card entries from save.
+[2026-04-20 11:08:55] INFO     core.game_manager — GameManager initialised.
+[2026-04-20 11:08:56] INFO     main — UI готов — запуск event loop.

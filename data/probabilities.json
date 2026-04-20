@@ -1,0 +1,20 @@
+{
+  "Common Pack": {
+    "Common": 0.70,
+    "Rare": 0.20,
+    "Epic": 0.09,
+    "Legendary": 0.01
+  },
+  "Epic Pack": {
+    "Common": 0.40,
+    "Rare": 0.35,
+    "Epic": 0.20,
+    "Legendary": 0.05
+  },
+  "Legendary Pack": {
+    "Common": 0.20,
+    "Rare": 0.40,
+    "Epic": 0.30,
+    "Legendary": 0.10
+  }
+}

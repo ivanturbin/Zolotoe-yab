@@ -1,0 +1,178 @@
+{
+  "card_counts": {
+    "L001": 1,
+    "C009": 1,
+    "E001": 2,
+    "C005": 1,
+    "L005": 1,
+    "E010": 1,
+    "R002": 2,
+    "R014": 2,
+    "C019": 1,
+    "R011": 1,
+    "R007": 2,
+    "R006": 1,
+    "E009": 1,
+    "R015": 2,
+    "R001": 1,
+    "C015": 1
+  },
+  "card_meta": [
+    {
+      "product_id": "L001",
+      "product_name": "Парфюм Exclusive №1",
+      "brand": "Golden Apple",
+      "category": "Парфюмерия",
+      "rarity": "Legendary",
+      "image": "cards/legendary/perfume_exclusive.png",
+      "discount_value": 25
+    },
+    {
+      "product_id": "C009",
+      "product_name": "Лак для ногтей Classic",
+      "brand": "Golden Apple",
+      "category": "Ногти",
+      "rarity": "Common",
+      "image": "cards/common/nail_polish.png",
+      "discount_value": 3
+    },
+    {
+      "product_id": "E001",
+      "product_name": "Парфюм Golden Aura",
+      "brand": "Golden Apple",
+      "category": "Парфюмерия",
+      "rarity": "Epic",
+      "image": "cards/epic/perfume_golden_aura.png",
+      "discount_value": 15
+    },
+    {
+      "product_id": "C005",
+      "product_name": "Тоник для лица",
+      "brand": "Golden Apple",
+      "category": "Уход",
+      "rarity": "Common",
+      "image": "cards/common/face_tonic.png",
+      "discount_value": 3
+    },
+    {
+      "product_id": "L005",
+      "product_name": "Золотая маска 24K",
+      "brand": "Golden Apple",
+      "category": "Уход",
+      "rarity": "Legendary",
+      "image": "cards/legendary/gold_mask_24k.png",
+      "discount_value": 20
+    },
+    {
+      "product_id": "E010",
+      "product_name": "Парфюм Velvet Night",
+      "brand": "Golden Apple",
+      "category": "Парфюмерия",
+      "rarity": "Epic",
+      "image": "cards/epic/perfume_velvet_night.png",
+      "discount_value": 15
+    },
+    {
+      "product_id": "R002",
+      "product_name": "Помада Velvet",
+      "brand": "Golden Apple",
+      "category": "Губы",
+      "rarity": "Rare",
+      "image": "cards/rare/lipstick_velvet.png",
+      "discount_value": 8
+    },
+    {
+      "product_id": "R014",
+      "product_name": "Блеск для губ Crystal",
+      "brand": "Golden Apple",
+      "category": "Губы",
+      "rarity": "Rare",
+      "image": "cards/rare/lip_gloss.png",
+      "discount_value": 6
+    },
+    {
+      "product_id": "C019",
+      "product_name": "Термозащита спрей",
+      "brand": "Golden Apple",
+      "category": "Волосы",
+      "rarity": "Common",
+      "image": "cards/common/heat_protect.png",
+      "discount_value": 3
+    },
+    {
+      "product_id": "R011",
+      "product_name": "Маска для волос кератин",
+      "brand": "Golden Apple",
+      "category": "Волосы",
+      "rarity": "Rare",
+      "image": "cards/rare/keratin_mask.png",
+      "discount_value": 7
+    },
+    {
+      "product_id": "R007",
+      "product_name": "Румяна Peachy",
+      "brand": "Golden Apple",
+      "category": "Лицо",
+      "rarity": "Rare",
+      "image": "cards/rare/blush.png",
+      "discount_value": 7
+    },
+    {
+      "product_id": "R006",
+      "product_name": "Консилер Pro",
+      "brand": "Golden Apple",
+      "category": "Лицо",
+      "rarity": "Rare",
+      "image": "cards/rare/concealer.png",
+      "discount_value": 6
+    },
+    {
+      "product_id": "E009",
+      "product_name": "Набор помад Ombré",
+      "brand": "Golden Apple",
+      "category": "Губы",
+      "rarity": "Epic",
+      "image": "cards/epic/lipstick_ombre_set.png",
+      "discount_value": 13
+    },
+    {
+      "product_id": "R015",
+      "product_name": "Масло для тела Монои",
+      "brand": "Golden Apple",
+      "category": "Тело",
+      "rarity": "Rare",
+      "image": "cards/rare/body_oil.png",
+      "discount_value": 8
+    },
+    {
+      "product_id": "R001",
+      "product_name": "Тушь для ресниц Volume",
+      "brand": "Golden Apple",
+      "category": "Глаза",
+      "rarity": "Rare",
+      "image": "cards/rare/mascara_volume.png",
+      "discount_value": 7
+    },
+    {
+      "product_id": "C015",
+      "product_name": "Пена для умывания",
+      "brand": "Golden Apple",
+      "category": "Уход",
+      "rarity": "Common",
+      "image": "cards/common/cleansing_foam.png",
+      "discount_value": 3
+    }
+  ],
+  "discounts": [
+    {
+      "product_id": "R011",
+      "product_name": "Маска для волос кератин",
+      "rarity": "Rare",
+      "discount_percent": 10
+    }
+  ],
+  "packs_opened": {
+    "Legendary Pack": 4,
+    "Epic Pack": 1
+  }
+}
