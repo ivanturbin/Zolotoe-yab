@@ -13,9 +13,12 @@
     "R007": 2,
     "R006": 1,
     "E009": 1,
-    "R015": 2,
+    "R015": 0,
     "R001": 1,
-    "C015": 1
+    "C015": 1,
+    "C012": 1,
+    "R005": 1,
+    "E004": 1
   },
   "card_meta": [
     {
@@ -161,6 +164,33 @@
       "rarity": "Common",
       "image": "cards/common/cleansing_foam.png",
       "discount_value": 3
+    },
+    {
+      "product_id": "C012",
+      "product_name": "Кондиционер для волос",
+      "brand": "Golden Apple",
+      "category": "Волосы",
+      "rarity": "Common",
+      "image": "cards/common/conditioner.png",
+      "discount_value": 3
+    },
+    {
+      "product_id": "R005",
+      "product_name": "Хайлайтер Rose Gold",
+      "brand": "Golden Apple",
+      "category": "Лицо",
+      "rarity": "Rare",
+      "image": "cards/rare/highlighter.png",
+      "discount_value": 8
+    },
+    {
+      "product_id": "E004",
+      "product_name": "Набор кистей Premium",
+      "brand": "Golden Apple",
+      "category": "Аксессуары",
+      "rarity": "Epic",
+      "image": "cards/epic/brush_set.png",
+      "discount_value": 14
     }
   ],
   "discounts": [
@@ -169,10 +199,16 @@
       "product_name": "Маска для волос кератин",
       "rarity": "Rare",
       "discount_percent": 10
+    },
+    {
+      "product_id": "R015",
+      "product_name": "Масло для тела Монои",
+      "rarity": "Rare",
+      "discount_percent": 10
     }
   ],
   "packs_opened": {
     "Legendary Pack": 4,
-    "Epic Pack": 1
+    "Epic Pack": 2
   }
 }
